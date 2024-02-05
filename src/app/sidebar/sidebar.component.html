@@ -1,13 +1,17 @@
-<div class="border border-end d-flex flex-shrink flex-column" style="width: 244px; height: 960px">
+<div class="border border-end d-flex flex-shrink flex-column" style="width: 244px; height: 960px" position="fixed">
   <div class="mb-auto">
-    <h1><span class="greenText">Task</span> It!</h1>
-    <button type="Button" class="btn btn-success">Task List</button>
+    <h1><span class="greenText">Task</span>It!</h1>
+    <hr>
+    <button type="Button" class="btn btn-success" [routerLink]="['/']">Task List</button>
+    <br>
+    <button type="Button" class="btn btn-success" [routerLink]="['/kanban']">Kanban</button>
+
   </div>
   <div class="d-flex">
     <img src="" alt width="32" alt height="32" class="rounded-circle me-2">
     <div>
       <h4>UserName</h4>
-      <p>Email@Email.com</p>
+      <p>Email&#64;Email.com</p>
     </div>
   </div>
 </div>

@@ -1,3 +1,19 @@
+<h2>Task List</h2>
+
+<div class="row">
+  <div class="col-sm-2">
+  <h5>Filters:</h5>
+  </div>
+  <div class="d-flex col-sm-8">
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Status</button>
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date</button>
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Priority</button>
+
+  <button class="btn btn-success" [routerLink]="['/newtask']">Add New Task</button>
+  </div>
+</div>
+
+
 <div class="row">
     <div class="row">
       <div class="col-sm-3">
@@ -16,21 +32,28 @@
         <h5>Actions</h5>
       </div>
     </div>
-    <div class="row">
+    <div class="row"
+     *ngFor="let task of TaskDB.taskDatabase; let i = index"
+     >
       <div class="col-sm-3">
-        <p>Take out Trash</p>
+        <p> {{ task.title }} </p>
       </div>
       <div class="col-sm-2">
-        <p>10-5</p>
+        <p> {{ task.dueDate }}</p>
       </div>
       <div class="col-sm-2">
-        <p> High</p>
+        <p> {{ task.priority }}</p>
       </div>
       <div class="col-sm-2">
-        <p> In-Progress</p>
+        <p> {{ task.status }}</p>
       </div>
       <div class="col-sm-3">
-        <p> &#xF341; &#xF4CA; &#xF78A; </p>
+        <p>
+          <span [routerLink]="['/newtask']"> view &#xF341; </span>
+          <span [routerLink]="['/edit/', i]"> edit &#xF4CA; </span>
+
+          <span [routerLink]="['/delete/', i]"> delete &#xF78A; </span>
+          </p>
       </div>
     </div>
 

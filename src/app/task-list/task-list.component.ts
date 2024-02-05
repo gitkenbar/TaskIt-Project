@@ -1,23 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { TaskDBService } from '../shared/task-db.service';
+import { HTTPService } from '../shared/http.service';
+import { TaskItem } from '../shared/taskItem.class';
 
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  styleUrls: ['./task-list.component.css'],
+  providers: [TaskDBService, HTTPService]
 })
-export class TaskListComponent {
 
+export class TaskListComponent implements OnInit{
+  taskDatabase: TaskItem[] = [];
+
+  constructor(
+    public TaskDB: TaskDBService,
+    private http: HTTPService
+    ){};
+
+  ngOnInit() {
+    this.taskDatabase = this.TaskDB.setTasks();
+  };
+
+  editItem(index: number) {
+
+  }
 }
 
-export class TaskItem {
-  constructor(public Title: string, public dueDate: string, public Priority: string, public Status: string){}
-}
 
-export const myTasks = [
-  new TaskItem(
-    'Take Out Trash',
-    'Thursday',
-    'High',
-    'In-Progress'
-  )
-];
+
+
+

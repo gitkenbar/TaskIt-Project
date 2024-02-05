@@ -1,0 +1,7 @@
+<div class="backdrop">
+  <div class="modal-container">
+    <h3>Are you sure you want to delete "{{ taskName}}"?</h3>
+    <button class="btn btn-secondary" [routerLink]="['/']">Cancel</button>
+    <button class="btn btn-danger" (click)="delete(index)">Delete</button>
+  </div>
+</div>
